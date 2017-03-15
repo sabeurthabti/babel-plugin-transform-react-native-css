@@ -5,7 +5,7 @@ const code = `
 `;
 
 const x = require('babel-core').transform(code, {
-  plugins : ['./rnc-transform.js']
+  plugins : ['./index.js']
 });
 
 console.log(x.code);

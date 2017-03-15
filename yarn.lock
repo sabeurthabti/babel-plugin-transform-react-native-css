@@ -2080,9 +2080,9 @@ rc@~1.1.6:
     minimist "^1.2.0"
     strip-json-comments "~2.0.1"
 
-react-native-css@1.2.49:
-  version "1.2.49"
-  resolved "https://registry.yarnpkg.com/react-native-css/-/react-native-css-1.2.49.tgz#16cd06ad301c4cf15ab199af27322b6d57d34780"
+react-native-css@^1.2.50:
+  version "1.2.50"
+  resolved "https://registry.yarnpkg.com/react-native-css/-/react-native-css-1.2.50.tgz#cf508b4829ea69147c01a7943a4f068eb30fa93f"
   dependencies:
     chokidar "^1.4.1"
     colors "^1.1.2"

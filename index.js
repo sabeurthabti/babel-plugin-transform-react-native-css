@@ -1,5 +1,4 @@
 const RNC = require('react-native-css');
-const nodePath = require('path');
 const css = new RNC();
 
 function startTransform(input) {
@@ -9,16 +8,14 @@ function startTransform(input) {
 module.exports = ({ types : t }) => {
   return {
     visitor : {
-      ImportDeclaration(path, state) {
+      ImportDeclaration(path) {
 
         const resolvePath = path.node.source.value;
 
+        console.log(resolvePath);
         if (resolvePath.endsWith('scss')) {
           const importName = path.node.specifiers[0].local.name;
-          const name = resolvePath.replace(/\.\.\/|\.\//g, '').replace(/\//g, '_').split('.')[0];
-          let absolutePath = nodePath.resolve(nodePath.dirname(state.file.opts.filename), resolvePath),
-            relativePath = `${nodePath.dirname(absolutePath)}/_transformed/${name}.js`;
-          const css = startTransform(absolutePath, nodePath.resolve(relativePath));
+          const css = startTransform(resolvePath);
 
           if (css) {
             path.replaceWith(t.variableDeclaration('var', [
@@ -32,8 +29,6 @@ module.exports = ({ types : t }) => {
             ])
             );
           }
-        } else {
-          console.log('Only .scss is supported!');
         }
       }
     }
