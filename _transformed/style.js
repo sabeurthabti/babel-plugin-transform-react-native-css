@@ -1,1 +1,0 @@
-module.exports = require('react-native').StyleSheet.create({"body":{"background":"pink"}});

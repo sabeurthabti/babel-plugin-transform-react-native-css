@@ -13,7 +13,7 @@ module.exports = ({ types : t }) => {
 
         const resolvePath = path.node.source.value;
 
-        if (resolvePath.endsWith('css')) {
+        if (resolvePath.endsWith('scss')) {
           const importName = path.node.specifiers[0].local.name;
           const name = resolvePath.replace(/\.\.\/|\.\//g, '').replace(/\//g, '_').split('.')[0];
           let absolutePath = nodePath.resolve(nodePath.dirname(state.file.opts.filename), resolvePath),
@@ -32,6 +32,8 @@ module.exports = ({ types : t }) => {
             ])
             );
           }
+        } else {
+          console.log('Only .scss is supported!');
         }
       }
     }
