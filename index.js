@@ -25,7 +25,7 @@ module.exports = ({ types : t }) => {
 
         const resolvePath = path.node.source.value;
 
-        if (resolvePath.endsWith('scss')) {
+        if (resolvePath.endsWith('scss') || resolvePath.endsWith('scss.js')) {
           const importName = path.node.specifiers[0].local.name;
           const absolutePath = nodePath.resolve(nodePath.dirname(state.file.opts.filename), resolvePath);
 
